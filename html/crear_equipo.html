@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/practica_final/css/estilos.css">
+    <link rel="icon" href="/practica_final/imagenes/favicon.ico">
+    <script src="/practica_final/js/index.js"></script>
+    <title>Combates Pokémon</title>
+</head>
+
+<body onload="inicio()">
+    <!-- Menu de inicio de sesión -->
+    <header class="container">
+        <nav class="menu">
+            <ul>
+                <li>
+                    <button onclick="mostrarInicioSesion()">Inicio Sesión</button>
+
+                </li>
+                <li id="submenu">
+                    <p><label for="usuario">Usuario: </label><input type="text" id="usuario"></p>
+                    <p><label for="password">Contraseña: </label><input type="text" id="password"></p>
+                    <button onclick="inicioSesion()">Iniciar</button>
+                </li>
+        </nav>
+    </header>
+    <div class="pokemon_team">
+        <input type="file" onchange="lecturaPokemons(this)">
+        <p>
+            <label for="miembro1">Miembro 1</label>
+            <select name="miembro" id="miembro1" onchange="actualizarEquipo()">
+            </select>
+        </p>
+        <p>
+            <label for="miembro2">Miembro 2</label>
+            <select name="miembro" id="miembro2" onchange="actualizarEquipo()">
+            </select>
+        </p>
+        <p>
+            <label for="miembro3">Miembro 3</label>
+            <select name="miembro" id="miembro3" onchange="actualizarEquipo()">
+            </select>
+        </p>
+        <p>
+            <label for="miembro4">Miembro 4</label>
+            <select name="miembro" id="miembro4" onchange="actualizarEquipo()">
+            </select>
+        </p>
+        <p>
+            <label for="miembro5">Miembro 5</label>
+            <select name="miembro" id="miembro5" onchange="actualizarEquipo()">
+            </select>
+        </p>
+        <p>
+            <label for="miembro6">Miembro 6</label>
+            <select name="miembro" id="miembro6" onchange="actualizarEquipo()">
+            </select>
+        </p>
+    </div>
+
+    Tu equipo:
+    <div class="pokemon_leader">
+        <p id="set1">
+
+        </p>
+        <p id="set2">
+
+        </p>
+        <p id="set3">
+
+        </p>
+        <p id="set4">
+
+        </p>
+        <p id="set5">
+
+        </p>
+        <p id="set6">
+
+        </p>
+    </div>
+</body>
+
+</html>

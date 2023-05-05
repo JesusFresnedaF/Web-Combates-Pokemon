@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/practica_final/css/estilos.css">
+    <link rel="icon" href="/practica_final/imagenes/favicon.ico">
+    <script src="/practica_final/js/index.js"></script>
+    <title>Combates Pokémon</title>
+</head>
+<body onload="inicio()">
+    <header class="container">
+        <nav class="menu">
+            <ul>
+                <li>
+                    <button onclick="mostrarInicioSesion()">Inicio Sesión</button>
+
+                </li>
+                <li id="submenu">
+                    <p><label for="usuario">Usuario: </label><input type="text" id="usuario"></p>
+                    <p><label for="password">Contraseña: </label><input type="text" id="password"></p>
+                    <button onclick="inicioSesion()">Iniciar</button>
+                </li>
+
+            </table>
+        </nav>
+        <div class="llista"></div>
+    </header>
+    <div>
+        <p>Crear equipo</p>
+        <button class="crear_equipo" onclick="location.href='/practica_final/html/crear_equipo.html'"><img src="/practica_final/imagenes/agregar.png" alt=""></button>
+    </div>
+</body>
+</html>

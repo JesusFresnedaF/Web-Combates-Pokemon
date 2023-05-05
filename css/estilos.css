@@ -1,0 +1,25 @@
+nav ul{
+    float:right;
+    list-style-type: none;
+    text-align: right;
+}
+
+#submenu{
+    text-align: right;
+    margin: 0 10px 0 0;
+}
+
+.sesion{
+    text-align: right;
+    margin: 0 10px 0 0;
+}
+
+.crear_equipo>img{
+    height: 10%;
+    width: 10%;
+}
+
+.pokemon_leader p {
+    display: inline-block; /* cambia la presentación de bloque a en línea */
+    width: 30%; /* establece un ancho del 45% para que los elementos no ocupen todo el ancho disponible */
+}
