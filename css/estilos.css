@@ -4,6 +4,13 @@ nav ul{
     text-align: right;
 }
 
+.home img {
+    border:1px solid black;
+    border-radius: 100%;
+    max-width: 2%;
+    margin-bottom: 1%;
+}
+
 #submenu{
     text-align: right;
     margin: 0 10px 0 0;
@@ -14,12 +21,20 @@ nav ul{
     margin: 0 10px 0 0;
 }
 
-.crear_equipo>img{
-    height: 10%;
+.crear_equipo img{
     width: 10%;
+}
+
+.pokemon_leader{
+    width:30%;
 }
 
 .pokemon_leader p {
     display: inline-block; /* cambia la presentación de bloque a en línea */
     width: 30%; /* establece un ancho del 45% para que los elementos no ocupen todo el ancho disponible */
+}
+
+#container_teams>p {
+    border:1px solid black;
+    width:30%;
 }

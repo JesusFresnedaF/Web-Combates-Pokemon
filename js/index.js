@@ -17,6 +17,9 @@ class Pokemon {
         this.nivel = nivel;
         this.estadisticas = estadisticas;
         // this.ataques = ataques
+    };
+    toString = function toString(){
+        return this.nombre +", "+this.tipo1 +", "+this.tipo2+", "+this.nivel +", "+this.estadisticas.toString();
     }
 }
 
@@ -28,6 +31,9 @@ class Estadisticas {
         this.spatk = spatk;
         this.spdef = spdef;
         this.vel = vel;
+    };
+    toString = function toString(){
+        return this.vida + " " + this.def + " " + this.spatk + " " + this.spdef + " " + this.vel;
     }
 }
 
@@ -59,8 +65,10 @@ function mostrarInicioSesion() {
     }
 }
 
+
+var pokemons = new Array();
+
 function lecturaPokemons(input) {
-    var pokemons = new Array();
     let archivo = input.files[0];
     let lector = new FileReader();
 
@@ -76,14 +84,17 @@ function lecturaPokemons(input) {
         }
         pokemons.pop(0);
         addSelectMiembro(pokemons);
+        return pokemons;
     };
-    lector.onload();
+
+    pokemons = lector.onload();
     lector.onerror = function () {
         console.log("Error al leer el archivo");
     };
 }
 
 function addSelectMiembro(pokemons) {
+    let pokedex = pokemons;
     let select1 = document.getElementById("miembro1");
     for (let i = 0; i < pokemons.length; i++) {
         let option = document.createElement("option");
@@ -137,14 +148,13 @@ function addSelectMiembro(pokemons) {
         option.setAttribute("id", "option6_" + i);
         select6.add(option);
     }
-
-
-    addImagenPokemon(pokemons);
+    addImagenPokemon(pokedex);
 }
 
 
 function addImagenPokemon(pokemons) {
-    let imagenes = crearImagenes(pokemons); let select1 = document.getElementById("option1_" + document.getElementById("miembro1").value);
+    let imagenes = crearImagenes(pokemons);
+    let select1 = document.getElementById("option1_" + document.getElementById("miembro1").value);
     if (select1) {
         document.getElementById("set1").innerHTML = imagenes[select1.value];
     }
@@ -172,19 +182,13 @@ function addImagenPokemon(pokemons) {
 }
 
 
-function actualizarEquipo(pokemons) {
+function actualizarEquipo() {
     addImagenPokemon(pokemons);
 }
 
 
 function crearImagenes(pokemons) {
     var imagenes = [];
-
-    if (!Array.isArray(pokemons)) {
-        // Si pokemons no es un array, mostrar un mensaje de error en la consola
-        console.error('El argumento pasado a crearImagenes() no es un array.');
-        return imagenes;
-    }
 
     for (let i = 0; i < pokemons.length; i++) {
         var nombre = pokemons[i].nombre.toLowerCase();
@@ -193,6 +197,58 @@ function crearImagenes(pokemons) {
     }
 
     return imagenes;
+}
+
+var equipos = new Array();
+class Equipo {
+    constructor(pokemons) {
+        this.pokemons = pokemons;
+    }
+
+}
+
+function crearEquipo() {
+    if (equipos.length > 0) {
+        let team = [];
+        for (let j = 0; j < 6; j++) {
+            let img = document.querySelector('#set' + (j + 1) + ' img');
+            let alt = img.alt;
+            for (let i = 0; i < pokemons.length; i++) {
+                if (pokemons[i].nombre == alt) {
+                    team[j] = pokemons[i];
+                }
+            }
+        }
+        equipos.push(new Equipo(team));
+    }
+    else {
+        let team = [];
+        for (let j = 0; j < 6; j++) {
+            let img = document.querySelector('#set' + (j + 1) + ' img');
+            let alt = img.alt;
+            for (let i = 0; i < pokemons.length; i++) {
+                if (pokemons[i].nombre == alt) {
+                    team[j] = pokemons[i];
+                }
+            }
+        }
+        equipos[0] = new Equipo(team);
+    }
+    mostrarEquipos();
+}
+
+function mostrarEquipos() {
+    let container = document.getElementById("container_teams");
+    container.innerHTML = "";
+    for (let i = 0; i < equipos.length; i++) {
+        let p = document.createElement("p");
+        for (let j = 0; j < 6; j++) {
+            let div = document.createElement("div");
+            div.innerHTML = equipos[i].pokemons[j];
+            p.appendChild(div);
+        }
+        container.appendChild(p);
+    }
 }
 
 
